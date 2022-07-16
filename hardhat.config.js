@@ -1,4 +1,6 @@
 require("@nomicfoundation/hardhat-toolbox");
+require("@nomiclabs/hardhat-ethers");
+require("@nomicfoundation/hardhat-chai-matchers");
 const projectId = '7156e0dc3e0f4083b0ba8132ce71e6e6';
 const fs = require('fs')
 const keyData = fs.readFileSync('./p-key.txt', {

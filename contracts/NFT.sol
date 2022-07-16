@@ -2,9 +2,9 @@
 pragma solidity ^0.8.9;
 
 //we will bring in the openzeppelin ERC721 NFT functionalty
-import  'openzeppelin/contracts/token/ERC721/ERC721.sol';
-import  'openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol';
-import  'openzeppelin/contracts/utils/Counters.sol';
+import  '@openzeppelin/contracts/token/ERC721/ERC721.sol';
+import  '@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol';
+import  '@openzeppelin/contracts/utils/Counters.sol';
 
 //we are inheriting ERC721URIStorage from openzeppelin 
 //we are not inherinting ERC721 directly here because ERC721URIStorage is inheriting(see in nodemodules/openzeppelin/extention/ERC721URIStorage) 
@@ -20,7 +20,7 @@ contract NFT is ERC721URIStorage{
     // setApprovalForAll allows us to do that with contract address
 
     //contructor set up our address
-    contructor(address marketplaceAddress) ERC721('VsPlace','VS'){
+    constructor(address marketplaceAddress) ERC721('VsPlace','VS'){
         ContractAddress = marketplaceAddress;
     }
 
