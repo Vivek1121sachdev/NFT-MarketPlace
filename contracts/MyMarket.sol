@@ -6,7 +6,8 @@ import  'openzeppelin/contracts/security/ReentrancyGuard.sol'; //security agains
 import  'openzeppelin/contracts/utils/Counters.sol';
 import  'hardat/console.sol';
 
-Contract MyMarket is ReentrancyGuard {
+Contract MyMarket is ReentrancyGuard 
+{
     
     using Counters for Counters.Counter;
 
@@ -150,6 +151,67 @@ Contract MyMarket is ReentrancyGuard {
                 currentIndex = currentIndex + 1;
             }
         }    
+        return items;
+    }
+
+    // return nfts that the user has purchased
+
+    function fetchMyNFTs() public view returns (MarketToken[] memory){
+        uint totalItemCount = _tokenIds.current;
+        // a second counter for each individual user
+        uint itemCount = 0;
+        uint currentIndex = 0;
+
+        for(uint i=0; i < totalItemCount; i++){
+            if(IdToMarketToken[i+1].owner == msg.sender){
+                itemCount +=1;
+            }
+        }
+
+        // second loop to loop through the amount you have purchased with itemcount
+        // check to see if the owner address is equal to msg.sender
+
+        MarketToken[] memory items = new MarketToken[](itemCount);
+        for(uint i=0; i< totalItemCount; i++){
+            if(IdToMarketToken[i+1].owner == msg.sender){
+                uint currentId = IdToMarketToken[i+1].itemId;
+                //current array
+                MarketToken storage currentItem = IdToMarketToken[currentId];
+                items[currentIndex] = currentItem;
+                currentIndex += 1;
+            }
+        }
+        return items;
+    }
+
+    //function for returning an array of minted nfts
+    function fetchItemsCreated() public view returns(MarketToken[] memory)
+    {
+        //instead of .owner it will be the .seller
+        uint totalItemCount = _tokenIds.current();
+        uint itemCount = 0;
+        uint currentIndex= 0;
+
+        for(uint i=0; i<totalItemCount; i++){
+            if(IdToMarketToken[i+1].seller == msg.sender){
+                itemCount+=1;
+
+            }
+        }
+
+        // second loop to loop through the amount you have purchased with itemcount
+        // check to see if the owner address is equal to msg.sender
+
+        MarketToken[] memory items = new MarketToken[](itemCount);
+        for(uint i=0; i< totalItemCount; i++){
+            if(IdToMarketToken[i+1].seller == msg.sender){
+                uint currentId = IdToMarketToken[i+1].itemId;
+                //current array
+                MarketToken storage currentItem = IdToMarketToken[currentId];
+                items[currentIndex] = currentItem;
+                currentIndex += 1;
+            }
+        }
         return items;
     }
 }
