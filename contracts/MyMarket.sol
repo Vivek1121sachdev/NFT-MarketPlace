@@ -2,11 +2,12 @@
 pragma solidity ^0.8.9;
 
 import  'openzeppelin/contracts/token/ERC721/ERC721.sol';
-import  'openzeppelin/contracts/security/ReentrancyGuard.sol'; //security against transactions for multiple requests
+ //security against transactions for multiple requests
+import  'openzeppelin/contracts/security/ReentrancyGuard.sol';
 import  'openzeppelin/contracts/utils/Counters.sol';
 import  'hardat/console.sol';
 
-Contract MyMarket is ReentrancyGuard 
+contract MyMarket is ReentrancyGuard 
 {
     
     using Counters for Counters.Counter;
