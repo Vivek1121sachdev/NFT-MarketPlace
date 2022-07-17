@@ -1,6 +1,6 @@
 import '../styles/globals.css'
 import Link from 'next/link'
-import './app.css'
+import "./app.css"
 
 function MyMarketPlace({Component, pageProps}){
   return (
