@@ -1,4 +1,4 @@
-// SPDX-Licence-Indentifier: MIT
+//SPDX-License-Identifier: MIT
 pragma solidity ^0.8.9;
 
 //we will bring in the openzeppelin ERC721 NFT functionalty
