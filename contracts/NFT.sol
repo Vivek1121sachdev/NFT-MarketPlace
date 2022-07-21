@@ -1,5 +1,5 @@
 //SPDX-License-Identifier: MIT
-pragma solidity ^0.8.9;
+pragma solidity ^0.8.4;
 
 //we will bring in the openzeppelin ERC721 NFT functionalty
 import  '@openzeppelin/contracts/token/ERC721/ERC721.sol';
