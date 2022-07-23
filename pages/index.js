@@ -80,7 +80,7 @@ export default function Home() {
       loadNFTs()
     }
 
-    if(lodingState === 'loaded' && !nfts.length)return (<h1 className='px-20 py-7 text-4x1'>No Nfts in marketplace</h1>)
+    if(lodingState === 'loaded' && !nfts.length)return (<h1 className='px-20 py-7 text-4x1' style={{color:"white"}}>No Nfts in marketplace</h1>)
   
     return (
     <div className='flex justify-center'>

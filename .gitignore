@@ -50,6 +50,9 @@ coverage.json
 typechain
 typechain-types
 
+#p-key
+p-key
+
 #Hardhat files
 cache
 artifacts
