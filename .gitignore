@@ -51,7 +51,7 @@ typechain
 typechain-types
 
 #p-key
-p-key
+p-key.txt
 
 #Hardhat files
 cache
