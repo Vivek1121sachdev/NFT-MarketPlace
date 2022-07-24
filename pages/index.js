@@ -23,16 +23,9 @@ export default function Home() {
   async function loadNFTs(){
 
     // what we want to load
-    // ***proivder, tokenContract, marketContract, data for our  marketItems***
+    // ***proivder, tokenContract, marketContract, data for our marketItems***
 
     //The JSON-RPC API is a popular method for interacting with Ethereum and is available in all major Ethereum node implementations (e.g. Geth and Parity) as well as many third-party web services (e.g. INFURA)
-    // const provider = new ethers.providers.JsonRpcProvider()
-    // const provider = new ethers.providers.Web3Provider(web3.currentProvider)
-    // const tokenContract = new ethers.Contract(nftaddress, NFT.abi, provider)
-    // const marketContract = new ethers.Contract(nftmarketaddress, MyMarket.abi, provider)
-    
-    // const {ethereum} = window; 
-    // const provider = new ethers.providers.Web3Provider(ethereum).getSigner();
     const provider = new ethers.providers.JsonRpcProvider('https://rinkeby.infura.io/v3/7156e0dc3e0f4083b0ba8132ce71e6e6',4)
     const tokenContract = new ethers.Contract(nftaddress, NFT.abi, provider)
     const marketContract = new ethers.Contract(nftmarketaddress, MyMarket.abi, provider)
@@ -72,9 +65,7 @@ export default function Home() {
       const contract = new ethers.Contract(nftmarketaddress, MyMarket.abi, signer)
 
       const price = ethers.utils.parseUnits(nft.price.toString(), 'ether')
-      const transaction = await contract.createMarketSale(nftaddress, nft.tokenId, {
-        value: price
-      })
+      const transaction = await contract.createMarketSale(nftaddress, nft.tokenId, {value: price})
 
       await transaction.wait()
       loadNFTs()
