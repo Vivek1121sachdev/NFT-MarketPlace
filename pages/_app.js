@@ -13,7 +13,7 @@ function MyMarketPlace({Component, pageProps}){
             Main MarketPlace
           </a>
         </Link>
-        <Link href='pages/api/mint-item'>
+        <Link href='/mint-item'>
           <a className='mr-4'>
             Mint Token
           </a>
