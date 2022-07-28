@@ -23,7 +23,7 @@ function MyMarketPlace({Component, pageProps}){
             My Nfts
           </a>
         </Link>
-        <Link href='/'>
+        <Link href='/dashboard'>
           <a className='mr-4'>
             Account Dashboard
           </a>
