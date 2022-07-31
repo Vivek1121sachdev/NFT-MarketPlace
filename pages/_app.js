@@ -18,7 +18,7 @@ function MyMarketPlace({Component, pageProps}){
             Mint Token
           </a>
         </Link>
-        <Link href='/'>
+        <Link href='/my-nft'>
           <a className='mr-4'>
             My Nfts
           </a>
